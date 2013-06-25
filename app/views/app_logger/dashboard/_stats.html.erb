@@ -1,0 +1,66 @@
+<div class="stats">
+
+	<div>
+		Today New Visitors : <span><%= @new_visitors_ip.count %></span>
+	</div>
+	<div>
+		Today Unique Visitors : <span><%= @today_visitors_ips.uniq.count %></span>
+	</div>
+	<div>
+		Today total Visitors : <span><%= @today_visitors_ips.count %></span>
+	</div>
+	<div>
+		Total Unique Visitors :<span>	<%= @total_visitors_ips.uniq.count %></span>
+	</div>
+	<div class='no_border'>
+		Total Visitors : <span><%= @total_visitors_ips.count %></span>
+	</div>
+
+
+
+
+
+<script type="text/javascript">
+	$(function () {
+        $('#new_visitors').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: 'New Visitors'
+            },
+            tooltip: false,
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        color: '#000000',
+                        connectorColor: '#000000',
+                        formatter: function() {
+                            return '<b>'+ this.point.name +'</b>: '+ Math.round(this.percentage*100)/100 +' %';
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Visiotrs share',
+                data: [
+
+                     ['New Visitors', <%= @new_visitors_ip.uniq.count %>],
+										 ['Old Visitors', <%= @total_visitors_ips.uniq.count - @new_visitors_ip.uniq.count %>],
+                ]
+            }]
+        });
+    });
+
+
+
+</script>
+
+<div id="new_visitors"></div>
+</div>

@@ -1,0 +1,26 @@
+<% if @attr != 'log' %>
+	$('.table').show();
+	$('.logs').hide();
+	<% if @attr == "country" %>
+		$('#map').show();
+		$('.graphs').hide();
+	<% else %>
+		$('#map').hide();
+		$('.graphs').show().html("<%= j render('app_logger/logs/graphs', :graphs_logs => instance_variable_get("@#{@attr}_graph_logs"), :graph_name => @attr) %>");
+	<% end %>
+
+	$('.table').html("<%= j render('app_logger/dashboard/table') %>");
+	$('.breakdowns .charts').show().html("<%= j render('app_logger/logs/pie_charts', :pie_charts_logs => instance_variable_get("@#{@attr}_chart_logs"), :chart_name => @attr) %>");
+
+
+<% else %>
+
+
+				$('.graphs').hide();
+				$('#map').hide();
+				$('.table').hide();
+				$('.charts').hide();
+				$('.logs').show().html("<%= j render('app_logger/dashboard/logs') %><%= j link_to 'See More ...', 'logs/index',:class =>'see_more' %>");
+
+
+<% end %>

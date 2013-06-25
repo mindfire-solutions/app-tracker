@@ -1,0 +1,61 @@
+
+<script type="text/javascript">
+$(function () {
+        $('#graph').highcharts({
+            chart: {
+                type: 'line',
+                marginRight: 130,
+                marginBottom: 25
+            },
+            title: {
+                text: '<%= graph_name.capitalize %>',
+                x: -20 //center
+            },
+            xAxis: {
+                categories: [
+                    <% graphs_logs.first[1].each do |key,value| %>
+		                '<%= key %>',
+                	<% end %>
+                ]
+            },
+            yAxis: {
+                title: {
+                    text: 'Hits'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: ' Hits'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -10,
+                y: 100,
+                borderWidth: 0
+            },
+            series: [
+			<% graphs_logs.each do |key,value|%>
+			    {
+                name: '<%= key %>',
+                data:[
+                	<% value.each do |a| %>
+                		<%= a[1] %>,
+                	<% end %>
+            		]
+
+            	},
+			<% end %>
+            ]
+        });
+    });
+
+    </script>
+
+
+<div id="graph"></div>

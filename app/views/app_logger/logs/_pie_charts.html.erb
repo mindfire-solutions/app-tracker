@@ -1,0 +1,47 @@
+<script type="text/javascript">
+	$(function () {
+        $('#chart').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: '<%= chart_name %>'
+            },
+
+            tooltip: false,
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        color: '#000000',
+                        connectorColor: '#000000',
+                        formatter: function() {
+                            return '<b>'+ this.point.name +'</b>: '+ Math.round(this.percentage*100)/100 +' %';
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '<%= chart_name.capitalize %> share',
+                data: [
+                <% pie_charts_logs.each do |a| %>
+                    ['<%= a[0].capitalize %>',   <%= a[1] %>],
+                    <% end %>
+                ]
+            }]
+        });
+    });
+
+
+
+</script>
+
+
+
+
+<div id="chart"></div>

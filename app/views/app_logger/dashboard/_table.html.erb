@@ -1,0 +1,20 @@
+	<%# @attr_array.each do |attr| %>
+		<% sum = instance_variable_get("@#{@attr}_chart_logs").sum{|b| b[1]} %>
+		<% attr_variable = instance_variable_get("@#{@attr}_chart_logs") %>
+		<table>
+				<tr>
+					<th>
+						<%= @attr.capitalize %>
+					</th>
+					<th>Count</th>
+					<th>%</th>
+				</tr>
+		<% attr_variable.sort_by { |key, value| value }.reverse.each do |k,v|%>
+				<tr >
+					<td class='key'><%= k %></td>
+					<td class='value'><%= v %></td>
+					<td class='percent'><%= (v.to_f*100/sum.to_f).round(2) %>%</td>
+				</tr>
+		<% end %>
+		</table>
+	<% #end %>

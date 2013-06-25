@@ -1,0 +1,23 @@
+<div class="filters">
+	<span class="<%= active_class(@attr, 'action')%>">
+		<%= link_to 'Action', {:tab => 'action'}, :remote => true %>
+	</span>
+  <span class="<%= active_class(@attr, 'browser')%>">
+		<%= link_to 'Browser', {:tab => 'browser'}, :remote => true %>
+	</span>
+	<span class="<%= active_class(@attr, 'controller')%>">
+		<%= link_to 'Controller', {:tab => 'controller'}, :remote => true %>
+	</span>
+	<span class="<%= active_class(@attr, 'country')%>">
+		<%= link_to 'Countries', {:tab => 'country'}, :remote => true %>
+	</span>
+	<span class="<%= active_class(@attr, 'format')%>">
+		<%= link_to 'Format', {:tab => 'format'}, :remote => true %>
+	</span>
+	<span class="<%= active_class(@attr, 'os')%>">
+		<%= link_to 'OS', {:tab => 'os'}, :remote => true %>
+	</span>
+	<span class="<%= active_class(@attr, 'os')%>">
+		<%= link_to 'Log', {:tab => 'log'}, :remote => true %>
+	</span>
+</div>

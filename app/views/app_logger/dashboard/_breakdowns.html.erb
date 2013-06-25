@@ -1,0 +1,45 @@
+<div class='breakdowns'>
+
+	<%= render 'app_logger/dashboard/heat_map_visitors' %>
+
+	<div class="graphs">
+		<%= render 'app_logger/logs/graphs', :graphs_logs => instance_variable_get("@#{@attr}_graph_logs"), :graph_name => @attr %>
+	</div>
+
+	<div class="table">
+		<%= render 'app_logger/dashboard/table' %>
+	</div>
+
+	<div class="charts">
+		<%= render 'app_logger/logs/pie_charts', :pie_charts_logs => instance_variable_get("@#{@attr}_chart_logs"), :chart_name => @attr %>
+	</div>
+
+	<div class='logs'>
+		<%= render 'app_logger/dashboard/logs' %>
+ </div>
+
+</div>
+
+
+
+
+<script type="text/javascript">
+$(function () {
+	$('.filters span').click(function(){
+			$('.filters span').removeClass('active');
+			$(this).addClass('active');
+	})
+
+		<% if @attr == "log" %>
+				$('.breakdowns').hide();
+				$('#dashboard_map').hide();
+				$('.logs').show();
+		<% elsif @attr == "country"  %>
+				$('.logs').hide();
+				$('.graphs').hide();
+		<% else %>
+				$('#dashboard_map').hide();
+				$('.logs').hide();
+	 <% end %>
+});
+</script>

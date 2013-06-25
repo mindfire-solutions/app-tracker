@@ -1,0 +1,56 @@
+<script type="text/javascript">
+
+$(function () {
+        $('#visitors_graph').highcharts({
+            chart: {
+                type: 'line',
+                marginRight: 130,
+                marginBottom: 25
+            },
+            title: {
+                text: 'Daily Visits',
+                x: -20 //center
+            },
+            xAxis: {
+                categories:
+													[
+														<% @count_hash.each do |k,v| %>
+					 										'<%= k.strftime %>',
+														<% end %>
+													]
+            },
+            yAxis: {
+                title: {
+                    text: 'Visits'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -10,
+                y: 100,
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Daily Visits',
+                data: [
+												<% @count_hash.each do |k,v| %>
+													 <%= v %>,
+												<% end %>
+                ]
+            }]
+        });
+    });
+
+</script>
+
+<div class='daily_visitor'>
+	<h2>Dash Board</h2>
+	<div id='visitors_graph'></div>
+</div>

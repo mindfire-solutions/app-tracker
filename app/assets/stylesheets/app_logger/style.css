@@ -1,0 +1,213 @@
+body{
+	margin:0px;
+	padding:0px;
+}
+#app_logger_body{
+	background:#fff;
+	width:960px;
+	border: 1px solid black;
+	font-family: serif;
+	margin:0px auto 10px;
+}
+.no_border{
+	border-bottom:none !important;
+}
+
+table{
+	border-bottom: 1px solid #666;
+	border-collapse:collapse;
+}
+table th{
+	background:#006DCC;
+	border: 1px solid #666;
+	margin:0px;
+	padding:0px;
+	height: 31px;
+	color:#fff;
+}
+table tr:nth-child(odd) {
+	background: #efefef;
+}
+
+table tr:nth-child(even) {
+	background: #ffffff;
+}
+
+table table td{
+	padding: 4px 5px 3px 2px;
+}
+
+#app_logger_body .logs_table{
+	width:100%
+}
+
+
+
+.highcharts-button,.highcharts-legend{
+	display:none;
+}
+
+
+
+
+
+.no_activity h2{
+	text-align:center;
+	color:#b92e00;
+	margin-top: 100px;
+	margin-bottom: 128px;
+	font-size: 40px;
+}
+
+.daily_visitor h2{
+	background:#006DCC;
+	text-align:center;
+	color:#fff;
+	font-size: 40px;
+	margin-top: 0px;
+}
+.daily_visitor #visitors_graph{
+	width: 100%;
+	height: 200px;
+	margin: 0 auto
+}
+
+
+
+
+
+.stats{
+	margin-top:20px;
+	margin-bottom:20px;
+	border-top:1px solid #afafaf;
+	border-bottom:1px solid #afafaf;
+	position:relative
+}
+
+.stats div{
+	width:300px;
+	text-align:left;
+	color:#333;
+	font-size: 20px;
+	padding:11px 5px 0px;
+	border-bottom:1px solid #afafaf;
+	border-right:1px solid #afafaf;
+	height:33px;
+}
+
+.stats div:last-child {
+	border-bottom:none;
+	border-right:none;
+
+}
+
+.stats div span{
+	color:#000;
+	font-weight:bold;
+}
+
+.stats #new_visitors{
+	height:200px !important;
+	position:absolute;
+	top:0px;
+	right:100px;
+	min-width: 400px;
+	height: 400px;
+	margin: 0 auto
+}
+
+
+
+
+.filters{
+	margin-top:20px;
+	margin-bottom:0px;
+	border-top:1px solid #afafaf;
+	border-bottom:1px solid #afafaf;
+}
+.filters span{
+	width:133px;
+	text-align:center;
+	color:#333;
+	font-size: 20px;
+	height:33px;
+	display:inline-block;
+	margin:0px 0px;
+	padding-top: 8px;
+}
+
+.filters a, .filters a:link{
+	color:#000;
+}
+
+.filters a:visited{
+	color:#857bb1;
+}
+
+.filters a:hover{
+	color:#006600;
+}
+.filters span.active{
+	background:#006DCC;
+}
+.filters span.active a:link, .filters span.active a:hover, .filters span.active a:visited{
+	background:#006DCC;
+	color:#fff;
+	font-weight:bold;
+}
+
+
+
+
+
+
+.breakdowns{
+	min-height:500px;
+	padding:0px;
+	overflow:auto;
+	position:relative;
+}
+.breakdowns #graph, .breakdowns #map{
+	height:300px !important;
+	border-bottom:1px solid black;
+	width:100% !important;
+	margin: 0 auto;
+}
+.breakdowns #chart{
+	height:200px !important;
+}
+.breakdowns .charts{
+	width:600px;
+	height:200px;
+	margin:0px 0px 0px 10px;
+	vertical-align: top;
+}
+.breakdowns .table, .breakdowns table{
+	width:300px !important;
+	margin:10px 0px 0px 10px;
+}
+.breakdowns table{
+		border:1px solid black;
+		margin:0px 0px 5px 0px;
+}
+
+.breakdowns table .key{
+	width:60%;
+}
+.breakdowns table .value, .breakdowns table .percent{
+	text-align:right;
+	border-right: 1px solid #666;
+	border-left: 1px solid #666;
+	width:20%;
+}
+.breakdowns .table,.breakdowns .charts{
+	display:inline-block;
+}
+.breakdowns .logs_table{
+	width:100% !important;
+}
+.see_more{
+	float:right;
+	color:#000;
+	font-size:20px;
+}

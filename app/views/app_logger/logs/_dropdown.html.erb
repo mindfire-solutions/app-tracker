@@ -1,0 +1,28 @@
+<% duration_hash = {
+			 "Last week" => "6.days",
+			 "Two weeks" => "13.days",
+			 "Three weeks" => "20.days",
+			 "One Month" => "29.days",
+			# "Three months" => "3.months",
+			# "Six months" => "6.months",
+		#	 "One Year" => "12.months",
+			 } %>
+
+
+<%= select( "payment", "id", duration_hash) %>
+
+<script type="text/javascript">
+$(function () {
+
+	$('#payment_id').on('change', function(){
+
+		$.ajax({
+  		type: "GET",
+	  	url: "<%= request.path %>.js",
+	  	data: { duration : $('#payment_id').val() }
+		});
+
+	});
+
+});
+</script>

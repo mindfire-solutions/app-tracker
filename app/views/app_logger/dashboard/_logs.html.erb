@@ -1,0 +1,18 @@
+<table class='logs_table'>
+	<tr>
+		<th>IP</th>
+		<th>Country</th>
+		<th>Action</th>
+		<th>Controller</th>
+		<th>Visit Date</th>
+	</tr>
+	<% @logs.each do |log| %>
+		<tr >
+			<td ><%= log.ip %></td>
+			<td ><%= log.country %></td>
+			<td ><%= log.action %></td>
+			<td ><%= log.controller %></td>
+			<td ><%= log.created_at.to_s(:long) %></td>
+		</tr>
+	<% end %>
+</table>
