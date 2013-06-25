@@ -1,6 +1,6 @@
 1. include Gem in your GemFile
 3. run bundler
-2. rails generate app-tracker:install
+2. rails generate app_tracker:install
 3. rake db:migrate
 
 4. Use
