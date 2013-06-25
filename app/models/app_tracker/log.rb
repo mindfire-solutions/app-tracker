@@ -1,4 +1,4 @@
-module AppLogger
+module AppTracker
 
 	class Log < ActiveRecord::Base
 

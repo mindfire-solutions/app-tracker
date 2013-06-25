@@ -1,11 +1,11 @@
-require "app_logger/engine"
+require "app-tracker/engine"
 
-module AppLogger
-  def request_logger
+module AppTracker
+  def request_tracker
     user_agent = UserAgent.parse(request.user_agent)
 		request_type = formatted_format(request.format)
 
-    AppLogger::Log.create!(
+    AppTracker::Log.create!(
 			:os => user_agent.platform,
 			:browser => user_agent.browser,
 			:controller => params[:controller],
@@ -36,4 +36,4 @@ module AppLogger
 
 end
 
-ActionController::Base.send(:include, AppLogger)
+ActionController::Base.send(:include, AppTracker)

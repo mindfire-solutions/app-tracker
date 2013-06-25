@@ -4,8 +4,8 @@ require 'useragent'
 require 'geocoder'
 
 
-module AppLogger
+module AppTracker
   class Engine < Rails::Engine
-    isolate_namespace AppLogger
+    isolate_namespace AppTracker
   end
 end

@@ -2,7 +2,7 @@ body{
 	margin:0px;
 	padding:0px;
 }
-#app_logger_body{
+#app_tracker_body{
 	background:#fff;
 	width:960px;
 	border: 1px solid black;
@@ -37,7 +37,7 @@ table table td{
 	padding: 4px 5px 3px 2px;
 }
 
-#app_logger_body .logs_table{
+#app_tracker_body .logs_table{
 	width:100%
 }
 

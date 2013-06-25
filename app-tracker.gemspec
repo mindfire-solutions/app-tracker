@@ -1,12 +1,12 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require 'app_logger/version'
+require 'app-tracker/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
-  spec.name          = "app_logger"
-  spec.version       = AppLogger::VERSION
+  spec.name          = "app-tracker"
+  spec.version       = AppTracker::VERSION
   spec.authors       = ["Sahil Grover"]
   spec.email         = ["saahilgrover20@gmail.com"]
   spec.description   = %q{'A Gem to record and analyse the user activity on application'}

@@ -1,6 +1,6 @@
-class CreateAppLoggerLogs < ActiveRecord::Migration
+class CreateAppTrackerLogs < ActiveRecord::Migration
   def change
-    create_table :app_logger_logs do |t|
+    create_table :app_tracker_logs do |t|
       t.string :ip
       t.string :controller
       t.string :action

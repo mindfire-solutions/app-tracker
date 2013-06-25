@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>App Tracker</title>
+	  <%= javascript_include_tag "app_tracker/jquery" %>
+	  <%= javascript_include_tag "app_tracker/rails" %>
+	  <%= javascript_include_tag "app_tracker/exporting" %>
+	 	<%= javascript_include_tag "app_tracker/highcharts" %>
+		<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+		<%= stylesheet_link_tag "app_tracker/style" %>
+	</head>
+	<body>
+		<div id="app_tracker_body">
+			<%= yield %>
+		</div>
+	</body>
+</html>

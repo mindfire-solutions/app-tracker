@@ -1,4 +1,4 @@
-module AppLogger
+module AppTracker
 
 	module ApplicationHelper
 

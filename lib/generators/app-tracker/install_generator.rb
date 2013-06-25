@@ -2,7 +2,7 @@
 require 'rails/generators'
 require 'rails/generators/migration'
 
-module AppLogger
+module AppTracker
 
 	class InstallGenerator < Rails::Generators::Base
     include Rails::Generators::Migration
@@ -14,7 +14,7 @@ module AppLogger
     end
 
     def copy_migrations
-      migration_template "migrations/create_app_logger_logs.rb", "db/migrate/create_app_logger_logs.rb"
+      migration_template "migrations/create_app_tracker_logs.rb", "db/migrate/create_app_tracker_logs.rb"
     end
 
    # def add_intializer
@@ -26,7 +26,7 @@ module AppLogger
    # end
 
     def add_routes
-      engine_mount  = "mount AppLogger::Engine, :at => '/logs'"
+      engine_mount  = "mount AppTracker::Engine, :at => '/logs'"
       route engine_mount
     end
 

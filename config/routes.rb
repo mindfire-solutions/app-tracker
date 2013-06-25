@@ -1,4 +1,4 @@
-AppLogger::Engine.routes.draw do
+AppTracker::Engine.routes.draw do
 	#match "charts" => "logs#charts"
 	#match "graphs" => "logs#graphs"
 	match "index" => "logs#index"

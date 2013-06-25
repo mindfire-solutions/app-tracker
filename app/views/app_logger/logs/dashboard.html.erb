@@ -1,8 +1,0 @@
-<% if AppLogger::Log.first.nil? %>
-	<%= render 'app_logger/logs/no_activity' %>
-<% else %>
-	<%= render 'app_logger/dashboard/daily_visitors' %>
-	<%= render 'app_logger/dashboard/stats' %>
-	<%= render 'app_logger/dashboard/tabs' %>
-	<%= render 'app_logger/dashboard/breakdowns' %>
-<% end %>

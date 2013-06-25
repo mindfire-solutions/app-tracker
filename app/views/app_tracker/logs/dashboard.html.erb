@@ -1,0 +1,8 @@
+<% if AppTracker::Log.first.nil? %>
+	<%= render 'app_tracker/logs/no_activity' %>
+<% else %>
+	<%= render 'app_tracker/dashboard/daily_visitors' %>
+	<%= render 'app_tracker/dashboard/stats' %>
+	<%= render 'app_tracker/dashboard/tabs' %>
+	<%= render 'app_tracker/dashboard/breakdowns' %>
+<% end %>
