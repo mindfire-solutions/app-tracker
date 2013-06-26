@@ -7,6 +7,7 @@ module AppTracker
 
 		user_agent.platform.nil? ? (os = 'unknown'):(os = user_agent.platform)
 		user_agent.browser.nil? ? (browser = 'unknown'):(browser = user_agent.browser)
+		request.location.country.nil? ? (country = 'unknown'):(country = request.location.country)
 
 
     	AppTracker::Log.create!(
@@ -16,7 +17,7 @@ module AppTracker
 			:action => params[:controller]+"/"+params[:action],
 			:ip => request.remote_ip,
 			:format => request_type,
-			:country => request.location.country,
+			:country => country,
 			:previous_url => request.referrer,
 			:current_url => "http://#{request.host}:#{request.port.to_s + request.fullpath}"
 			#:created_at => Date.today
