@@ -13,8 +13,7 @@ module AppTracker
 		unloadable #marks the class for reloading inbetween requests.
 
 		def index
-			@logs = AppTracker::Log.order('created_at DESC')
-														.paginate(:page => params[:page], :per_page => 50)
+			@logs = AppTracker::Log.order('created_at DESC').paginate(:page => params[:page], :per_page => 50)
 		end
 
 
@@ -25,21 +24,20 @@ module AppTracker
 				instance_variable_set("@#{@attr}_graph_logs", AppTracker::Log.graph_data(@attr, @duration))
 			end
 
-			@logs = AppTracker::Log.order('created_at DESC')
-														.paginate(:page => params[:page], :per_page => 50)
+			@logs = AppTracker::Log.order('created_at DESC').paginate(:page => params[:page], :per_page => 50)
 
 			if request.format == 'text/html'
 				@count_hash = AppTracker::Log.daily_data(@duration)
 				@country_hash = AppTracker::Log.chart_data('country', @duration)
-				@total_visitors_ips = AppTracker::Log.where("created_at > ?", @duration).pluck('ip')
-				@today_visitors_ips = AppTracker::Log.where("DATE(created_at) = DATE(?)", Date.today).pluck('ip')
+				@total_visitors_ips = AppTracker::Log.where("created_at > ?", @duration).select('ip').map(&:ip)
+				@today_visitors_ips = AppTracker::Log.where("DATE(created_at) = DATE(?)", Date.today).select('ip').map(&:ip)
 				@new_visitors_ip = @today_visitors_ips.uniq - AppTracker::Log.where("created_at > ? and DATE(created_at) < ?",  @duration, Date.today).select("DISTINCT(IP)")
 			end
 
 			respond_to do |format|
-    	  format.html
-    	  format.js
-  	  end
+    	  		format.html
+    	 		 format.js
+  	 		 end
 
 
 		end
