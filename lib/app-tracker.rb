@@ -5,9 +5,9 @@ module AppTracker
    		user_agent = UserAgent.parse(request.user_agent)
 		request_type = formatted_format(request.format)
 
-		user_agent.platform.nil? ? (os = 'unknown'):(os = user_agent.platform)
-		user_agent.browser.nil? ? (browser = 'unknown'):(browser = user_agent.browser)
-		request.location.country.nil? ? (country = 'unknown'):(country = request.location.country)
+		os = user_agent.platform.nil? ? ('unknown'):(user_agent.platform)
+		browser = user_agent.browser.nil? ? ('unknown'):(user_agent.browser)
+		country = request.location.country.nil? ? ('unknown'):(request.location.country)
 
 
     	AppTracker::Log.create!(

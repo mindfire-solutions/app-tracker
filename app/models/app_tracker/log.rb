@@ -13,7 +13,7 @@ module AppTracker
 		def self.graph_data(attribute, duration)
 			attributes_hash = {}
 			self.group(attribute).each do |attr_rcrd|
-				attr_type =  attr_rcrd.send(attribute)
+				(attribute == 'format') ? (attr_type = attr_rcrd.format):(attr_type =  attr_rcrd.send(attribute))
 				attributes_hash[attr_type] = daily_records_counts_array_in_past_n_days(attr_type, attribute, duration)
 			end
 			attributes_hash
@@ -26,7 +26,7 @@ module AppTracker
 			(duration..Date.today).each do |date|
 				total_counts = counts[date]
 				total_counts = counts[date.strftime] if total_counts.nil?
-			  total_counts.nil? ? (count_hash[date] = 0) : (count_hash[date] = total_counts)
+				total_counts.nil? ? (count_hash[date] = 0) : (count_hash[date] = total_counts)
 			end
 			count_hash
 		end
