@@ -1,13 +1,17 @@
 require "app-tracker/engine"
 
 module AppTracker
-  def request_tracker
-    user_agent = UserAgent.parse(request.user_agent)
+	def request_tracker
+   		user_agent = UserAgent.parse(request.user_agent)
 		request_type = formatted_format(request.format)
 
-    AppTracker::Log.create!(
-			:os => user_agent.platform,
-			:browser => user_agent.browser,
+		user_agent.platform.nil? ? (os = 'unknown'):(os = user_agent.platform)
+		user_agent.browser.nil? ? (browser = 'unknown'):(browser = user_agent.browser)
+
+
+    	AppTracker::Log.create!(
+			:os => os,
+			:browser => browser,
 			:controller => params[:controller],
 			:action => params[:controller]+"/"+params[:action],
 			:ip => request.remote_ip,
@@ -16,21 +20,21 @@ module AppTracker
 			:previous_url => request.referrer,
 			:current_url => "http://#{request.host}:#{request.port.to_s + request.fullpath}"
 			#:created_at => Date.today
-    )
-  end
+    	)
+	end
 
 	def formatted_format(request_type)
 	 case request_type
 		when 'text/html'
-				'html'
+			'html'
  		when 'text/javascript'
-				'javascript'
+			'javascript'
  		when 'application/json'
-				 'json'
+			'json'
  		when 'application/xml'
-				 'xml'
+			'xml'
 		else
-				'unknown'
+			'unknown'
 		end
 	end
 
