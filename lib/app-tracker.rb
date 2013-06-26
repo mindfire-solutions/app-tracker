@@ -26,13 +26,13 @@ module AppTracker
 
 	def formatted_format(request_type)
 	 case request_type
-		when 'text/html'
+		when 'text/html' || 'html'
 			'html'
- 		when 'text/javascript'
+ 		when 'text/javascript' || 'javascript'
 			'javascript'
- 		when 'application/json'
+ 		when 'application/json' || 'json'
 			'json'
- 		when 'application/xml'
+ 		when 'application/xml' || 'xml'
 			'xml'
 		else
 			'unknown'
