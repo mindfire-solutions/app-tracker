@@ -14,9 +14,9 @@ Getting Started
 ---------------
 App-Tracker is a mountable engine created in rails 3.1.3 environment. It can be integrated to any rails application > 3.1.3. The dashboard can be seen only by the admin.
 
-Below are instruction to setup survey in your application:
+Below are instruction to setup app-tracker in your application:
 
- Add the survey gem to your Gemfile:
+ Add the app-tracker gem to your Gemfile:
 ```ruby
 gem 'app-tracker', :git => 'git://github.com/mindfire-solutions/app-tracker'
 ```
