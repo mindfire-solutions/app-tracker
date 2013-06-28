@@ -45,10 +45,10 @@ before_filter :request_tracker
 http://yourwebsiteurl.com/logs
 ```
 
-*Dashboard is by default protected by
+* Dashboard is by default protected by
 ```ruby
 username : admin
 password : password
 ```
 
-*That's it you are ready to track and view stats!!.. :).
+* That's it you are ready to track and view stats!!.. :).
