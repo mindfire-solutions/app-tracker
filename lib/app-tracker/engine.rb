@@ -1,7 +1,6 @@
 #require 'rubygems'
 require 'will_paginate'
 require 'useragent'
-require 'geocoder'
 
 
 module AppTracker
