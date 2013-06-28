@@ -19,9 +19,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "useragent", "~> 0.6.0"
   spec.add_dependency "will_paginate", "~> 3.0"
-  spec.add_dependency "geocoder"
 	spec.add_dependency "bundler"
 
-  #spec.add_development_dependency "bundler", "~> 1.3"
-  #spec.add_development_dependency "rake"
 end

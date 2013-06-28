@@ -7,8 +7,8 @@ module AppTracker
 
 		os = user_agent.platform.nil? ? ('unknown'):(user_agent.platform)
 		browser = user_agent.browser.nil? ? ('unknown'):(user_agent.browser)
-		country = request.location.country.nil? ? ('unknown'):(request.location.country)
-
+		country = Timeout::timeout(10) { Net::HTTP.get_response(URI.parse('http://api.hostip.info/country.php?ip=' + request.remote_ip )).body } rescue "XX"
+		country = 'unknown' if country == 'XX'
 
     	AppTracker::Log.create!(
 			:os => os,
