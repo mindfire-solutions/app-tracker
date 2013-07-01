@@ -3,9 +3,8 @@
 
 module AppTracker
 
-	class LogsController < ActionController::Base
+	class LogsController < ApplicationController
 
-		before_filter :authenticate_tracker_admin
 		before_filter :log_duration, :except => [:index]
 		skip_before_filter :request_tracker
 		layout 'tracker'
@@ -19,6 +18,7 @@ module AppTracker
 
 		def dashboard
 			params[:tab].nil? ? (@attr = 'country'):(@attr = params[:tab])
+			
 			if @attr != 'log'
 				instance_variable_set("@#{@attr}_chart_logs", AppTracker::Log.chart_data(@attr, @duration))
 				instance_variable_set("@#{@attr}_graph_logs", AppTracker::Log.graph_data(@attr, @duration))
@@ -33,23 +33,14 @@ module AppTracker
 				@today_visitors_ips = AppTracker::Log.where("DATE(created_at) = DATE(?)", Date.today).select('ip').map(&:ip)
 				@new_visitors_ip = @today_visitors_ips.uniq - AppTracker::Log.where("created_at > ? and DATE(created_at) < ?",  @duration, Date.today).select("DISTINCT(IP)")
 			end
-
 			respond_to do |format|
     	  		format.html
     	 		 format.js
-  	 		 end
-
-
+    	 	end
 		end
 
 
 		private
-
-		def authenticate_tracker_admin
-			authenticate_or_request_with_http_basic do |username, password|
-				username == "admin" && password == "password"
-			end
-		end
 
 		def log_duration
 			if params[:duration].nil?

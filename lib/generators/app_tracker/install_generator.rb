@@ -17,14 +17,6 @@ module AppTracker
       migration_template "migrations/create_app_tracker_logs.rb", "db/migrate/create_app_tracker_logs.rb"
     end
 
-   # def add_intializer
-      #template "initializer.rb", "config/initializers/survey_initializer.rb"
-      #create_file "config/initializers/app_logs.rb",
-
-     # "# replace User with your member resource.
-     #  USER_RESOURCE = '" + file_name.camelize + "'"
-   # end
-
     def add_routes
       engine_mount  = "mount AppTracker::Engine, :at => '/logs'"
       route engine_mount

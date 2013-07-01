@@ -45,10 +45,9 @@ before_filter :request_tracker
 http://yourwebsiteurl.com/logs
 ```
 
-* Dashboard is by default protected by
+* To generate and modify view you can do 
 ```ruby
-username : admin
-password : password
+rails generate app_tracker:views
 ```
 
 * That's it you are ready to track and view stats!!.. :).
