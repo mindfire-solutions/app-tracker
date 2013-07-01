@@ -25,6 +25,7 @@ gem 'app-tracker', :git => 'git://github.com/mindfire-solutions/app-tracker'
 ```console
 bundle install
 ```
+
 * Install the gem by running following command in the terminal
 ```console
 rails generate app_tracker:install
@@ -32,7 +33,7 @@ rails generate app_tracker:install
 
 * Run the migrations.
 ```console
-rake  db:migrate
+rake db:migrate
 ```
 
 * Add before_filter according to neeed to controllers or action that you want to monitor.
@@ -41,12 +42,12 @@ before_filter :request_tracker
 ```
   
 * You can view dashboard at
-```ruby
+```console
 http://yourwebsiteurl.com/logs
 ```
 
 * To generate and modify view you can do 
-```ruby
+```console
 rails generate app_tracker:views
 ```
 
